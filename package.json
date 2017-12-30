@@ -1,0 +1,42 @@
+{
+  "name": "boilerplate-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node server/db/seed-files/seed",
+    "start": "node server/main",
+    "start-dev": "webpack -w & nodemon server/main"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "faker": "^4.1.0",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "pg": "^6.4.1",
+    "pg-hstore": "^2.3.2",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^5.0.6",
+    "react-router": "^3.0.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "sequelize": "^4.28.6"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0"
+  }
+}
