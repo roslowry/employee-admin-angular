@@ -70,10 +70,6 @@ export default class extends Component {
     const dateArr = dateHired.split('-');
     dateHired = new Date(parseInt(dateArr[0]), parseInt(dateArr[1]), parseInt(dateArr[2]));
     store.dispatch(addEmployee({firstName, middleInitial, lastName, emailAddress, phoneNumber, positionCategory, dateHired, address1, address2, city, state, zipcode, active}))
-    // axios.post('/api/employees/new-employee', {firstName, middleInitial, lastName, emailAddress, phoneNumber, positionCategory, dateHired, address1, address2, city, state, zipcode, active})
-    // .then(res => res.data)
-    // .then(createdUser => {console.log('created user', createdUser)})
-    // .catch(console.error.bind(console))
   }
 
 

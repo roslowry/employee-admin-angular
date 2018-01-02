@@ -7,8 +7,8 @@ import { updateEmployee } from '../reducers/root-reducer'
 
 
 export default class extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = Object.assign({
       numIncreasingInSize: true,
       phoneNumber: ''
@@ -76,16 +76,17 @@ export default class extends Component {
 
   convertDate(date){
     console.log('date is', date)
-    return date.toString().slice(0,13).split('-').join('/')
+    return date.toString().slice(0,13).split('-').join('-')
   }
 
   render(){
-    console.log('this.state', this.state)
-    const {active, address1, address2, city, dateHired, emailAddress, firstName, lastName, middleInitial, phoneNumber, positionCategory, state, zipcode} = this.state
+    // console.log('this.state in update employee is', this.state)
+    const {active, address1, address2, city, dateHired, emailAddress, firstName, lastName, middleInitial, phoneNumber, positionCategory, state, zipcode} = this.props.employee
+
+    // console.log('date hired is', dateHired)
 
     return (
       <div>
-        <div>This will be a form soon</div>
         <form className="form-group" onSubmit={this.handleSubmit}>
           <label htmlFor="firstName"><small>First Name</small><span style={{color: "red"}}>*</span></label>
           <input name="firstName" type="text" onChange={this.handleInputChange} value={firstName}/>
@@ -111,7 +112,7 @@ export default class extends Component {
             <option value="Executive">Executive</option>
           </select>
           <label htmlFor="date"><small>Date Hired</small><span style={{color: "red"}}>*</span></label>
-          <input type="date" name="dateHired" onChange={this.handleInputChange} value={dateHired}></input>
+          <input type="date" name="dateHired" onChange={this.handleInputChange} value={this.convertDate(dateHired)}></input>
           <label htmlFor="address1" ><small>Address 1</small></label>
           <input name="address1" type="text" onChange={this.handleInputChange} value={address1}></input>
           <label htmlFor="address2" ><small>Address 2</small></label>
@@ -133,6 +134,7 @@ export default class extends Component {
           </select>
           <button type="submit" onSubmit={this.handleSubmit}>Submit</button>
         </form>
+        <button onClick={this.props.handleClearForm}>Close</button>
       </div>
     )
 

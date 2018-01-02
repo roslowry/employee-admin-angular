@@ -46,8 +46,6 @@ router.put('/update-employee/:id', function(req, res, next){
 })
 
 router.delete('/delete-employee/:id', function(req, res, next) {
-  console.log('inside the delete employee route');
-  console.log('the id is', req.params.id)
   Employee.findById(+req.params.id)
   .then(foundEmployee => {
     return foundEmployee.destroy()

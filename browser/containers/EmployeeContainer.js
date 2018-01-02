@@ -3,9 +3,8 @@ import store from '../store';
 import Employees from '../components/employees';
 import AddEmployee from '../components/add-employee';
 import UpdateEmployee from '../components/update-employee';
-console.log('add employee is a react component', AddEmployee);
 
-import { deleteEmployee, fetchSingleEmployee} from '../reducers/root-reducer'
+import { deleteEmployee, fetchSingleEmployee, clearFormUpdatingStatus} from '../reducers/root-reducer'
 
 export default class extends React.Component {
   constructor(props){
@@ -17,7 +16,8 @@ export default class extends React.Component {
 
     this.handleAddEmployeeClick = this.handleAddEmployeeClick.bind(this);
     this.handleEmployeeDeleteClick = this.handleEmployeeDeleteClick.bind(this);
-    this.handleUpdateEmployeeClick = this.handleUpdateEmployeeClick.bind(this)
+    this.handleUpdateEmployeeClick = this.handleUpdateEmployeeClick.bind(this);
+    this.handleClearUpdateForm = this.handleClearUpdateForm.bind(this)
   }
 
   componentDidMount() {
@@ -44,25 +44,28 @@ export default class extends React.Component {
         updateEmployeeClicked: !this.state.updateEmployeeClicked
       })
       store.dispatch(fetchSingleEmployee(employeeId));
-      console.log('state updating', this.state)
     }
   }
 
   handleEmployeeDeleteClick(employeeId){
 
-    console.log('handle employee delete click,plus: employeeId and typeof employeeId', employeeId, typeof employeeId)
     return () => {
       store.dispatch(deleteEmployee(employeeId))
     }
   }
 
+  handleClearUpdateForm(){
+    store.dispatch(clearFormUpdatingStatus())
+  }
+
   render() {
-    console.log('state in employee container is', this.state);
-    // console.log('props in employee container are', this.props)
+    console.log('this.state in employees', this.state);
+    const {employeeToUpdate} = this.state
     return (
       <div>
         {this.state.addNewEmployeeClicked ? <AddEmployee /> : null}
-        {this.state.formUpdating ? <UpdateEmployee /> : null}
+        {this.state.formUpdating ? <UpdateEmployee employee={employeeToUpdate}
+        handleClearForm={this.handleClearUpdateForm} /> : null}
         <button onClick={this.handleAddEmployeeClick}>{this.state.addNewEmployeeClicked ? 'Hide' : 'Add Employee'}</button>
         <Employees
           employees={this.state.employees}

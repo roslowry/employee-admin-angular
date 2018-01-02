@@ -24,7 +24,7 @@ export default class extends React.Component {
     return (
       <div>
         <h1>Employee List - Draft</h1>
-        <h3>Note that this is a work-in progress, and a few bug fixes (namely to the 'update' section and a few enhancements (styling, validations, and refactoring) and additions (testing) are under way.</h3>
+        <h3>Note that this is a work-in progress, and a few enhancements (styling, validations, and refactoring) and additions (testing) are under way.</h3>
         <h3>Also, please note that if the list of employees is empty, you will need to run "npm run seed" from the command line.</h3>
 
         {this.props.children}
