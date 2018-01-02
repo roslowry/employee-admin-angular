@@ -1,7 +1,7 @@
 const Promise = require('bluebird');
 const db = require('../');
 const Employee = require('../employee');
-const createEmployee = require('./seed-utils');
+const {createFullName, generateEmail, generatePhoneNumber, generatePositionCategory, generateAddress, generateState, generateZipCode, generateActiveBool, generateCity, generateHireDate, createEmployee} = require('./seed-utils')
 
 const amountOfUsers = 75;
 
@@ -16,7 +16,7 @@ function generateFakeEmployees(n) {
   return employees;
 }
 
-let newEmployees = generateFakeEmployees(amountOfUsers)
+const newEmployees = generateFakeEmployees(amountOfUsers)
 
 function createData() {
   db.sync({force: true})

@@ -36,7 +36,6 @@ export function clearFormUpdatingStatus(){
 
 // thunk action creators
 export function fetchSingleEmployee(id) {
-  console.log('inside fetch employee')
   return dispatch => {
     axios.get(`/api/employees/${id}`)
     .then(res => res.data)
@@ -64,7 +63,6 @@ export function updateEmployee(id, body) {
     axios.put(`/api/employees/update-employee/${id}`,body)
     .then(res => res.data)
     .then(updatedEmployee => {
-      console.log('updated employee', updatedEmployee)
       dispatch(fetchEmployees());
       dispatch(clearFormUpdatingStatus());
     })
@@ -72,8 +70,6 @@ export function updateEmployee(id, body) {
 }
 
 export function deleteEmployee(id){
-  console.log('inside delete employee')
-  console.log('the employee id is', id)
   return dispatch => {
     axios.delete(`/api/employees/delete-employee/${id}`)
     .then(res => res.data)
@@ -90,6 +86,18 @@ export function addEmployee(employee) {
     .then(res => res.data)
     .then(updatedEmployees => {
       dispatch(setEmployees(updatedEmployees))
+    })
+  }
+}
+
+export function findEmployeesByLastName(name) {
+
+  console.log('here in find employees by last name')
+  return dispatch => {
+    axios.get(`/api/employees/search/${name}`)
+    .then(res => res.data)
+    .then(foundEmployees => {
+      dispatch(setEmployees(foundEmployees))
     })
   }
 }

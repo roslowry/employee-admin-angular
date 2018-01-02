@@ -1,20 +1,22 @@
 import React from 'react';
-import {convertNumber, convertAddress, boolToString} from '../../utils';
+import {convertPhoneNumber, convertAddress, boolToString} from '../../utils';
 import {deleteEmployee} from '../reducers/root-reducer';
-import store from '../store'
+import store from '../store';
+import { Button, Table } from 'react-bootstrap'
 
 export default function(props) {
 
   const {employees} = props
   return (
-    <div className="employee-table">
-      <table className="table">
+    <div>
+      <Table className="table" responsive>
         <thead>
           <tr>
+            <th>ID</th>
             <th>First Name</th>
             <th>Middle Initial</th>
             <th>Last Name</th>
-            <th>Email Address</th>
+            <th width="50px">Email Address</th>
             <th>Phone Number</th>
             <th>Position Category</th>
             <th>Date Hired</th>
@@ -34,11 +36,10 @@ export default function(props) {
             const dateMonth = dateArr[1];
             const dateYear = dateArr[0];
             const date = dateArr[2].slice(0, 2)
-            const convertedDate = dateYear + '-' + dateMonth + '-' + date
-            // const convertedDate = dateArr[0]
-            // const convertedDate = `${employee.dateHired.getMonth() + 1}-${employee.dateHired.getDate() + 1}-${employee.dateHired.getYear()}`;
+            const convertedDate = dateMonth + '-' + date + '-' + dateYear
             return (
               <tr key={employee.id}>
+                <th>{employee.id}</th>
                 <th>{employee.firstName}</th>
                 <th>{employee.middleInitial}</th>
                 <th>{employee.lastName}</th>
@@ -48,14 +49,14 @@ export default function(props) {
                 <th>{convertedDate}</th>
                 <th>{newAddress}</th>
                 <th>{activeBool}</th>
-                <th><button onClick={props.handleUpdateEmployeeClick(employee.id)}>Update</button></th>
-                <th><button onClick={props.handleEmployeeDeleteClick(employee.id)}>Delete</button></th>
+                <th><Button className="btn btn-primary"  onClick={props.handleUpdateEmployeeClick(employee.id)}>Update</Button></th>
+                <th><Button className="btn btn-primary"  onClick={props.handleEmployeeDeleteClick(employee.id)}>Delete</Button></th>
               </tr>
             )
           })}
 
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }

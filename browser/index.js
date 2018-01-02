@@ -6,7 +6,9 @@ import './index.css';
 import store from './store';
 import { fetchEmployees } from './reducers/root-reducer';
 import AppContainer from './containers/AppContainer';
-import EmployeeContainer from './containers/EmployeeContainer'
+import EmployeeContainer from './containers/EmployeeContainer';
+import AddEmployeeContainer from './containers/AddEmployeeContainer';
+import SearchLastName from './containers/SearchLastName';
 
 
 const loadEmployees = () => {
@@ -16,7 +18,7 @@ const loadEmployees = () => {
 
 function test(){
   return (
-    <div>Hey there! HA HA HA</div>
+    <div>Hey there! This is just a test component to ensure React Router is configured properly.</div>
   )
 }
 
@@ -24,7 +26,6 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={AppContainer} onEnter={loadEmployees}>
       <Route path="/employee-list" component={EmployeeContainer} />
-      <Route path="/delete-me" component={test} />
       <IndexRedirect to="/employee-list" />
     </Route>
   </Router>,

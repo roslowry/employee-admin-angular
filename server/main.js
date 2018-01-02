@@ -8,8 +8,6 @@ const bodyParser = require('body-parser');
 const apiRouter = require('./api');
 const db = require('./db');
 
-// create server
-
 db.sync()
 .then(() => {
   app.listen(port, function(){

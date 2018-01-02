@@ -21,6 +21,19 @@ router.get('/:id', function(req, res, next){
   .catch(next)
 })
 
+router.get(`/search/:lastName`, function (req, res, next) {
+  // console.log('in the employee router looking at req params for last name', req.params)
+  Employee.findAll({
+    where: {
+      lastName: req.params.lastName
+    }
+  })
+  .then(foundEmployees => {
+    res.json(foundEmployees)
+  })
+  .catch(next)
+})
+
 router.post('/new-employee', function(req, res, next){
   Employee.create(req.body)
   .then(() => {

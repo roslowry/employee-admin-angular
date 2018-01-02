@@ -1,5 +1,6 @@
 import React from 'react';
 import store from '../store';
+import Navbar from '../components/Navbar'
 
 export default class extends React.Component {
 
@@ -19,14 +20,11 @@ export default class extends React.Component {
   }
 
   render() {
-    console.log('state in app container is', this.state);
-    console.log('props in app container are', this.props)
     return (
       <div>
-        <h1>Employee List - Draft</h1>
-        <h3>Note that this is a work-in progress, and a few enhancements (styling, validations, and refactoring) and additions (testing) are under way.</h3>
-        <h3>Also, please note that if the list of employees is empty, you will need to run "npm run seed" from the command line.</h3>
-
+        <Navbar />
+        <h3>Note that this largely done, other than testing. Some CSS touches may be helpful as well (positioning of modal windows and buttonss. </h3>
+        <h3>Please note that if the list of employees is empty, you will need to run "npm run seed" from the command line.</h3>
         {this.props.children}
       </div>
     )
