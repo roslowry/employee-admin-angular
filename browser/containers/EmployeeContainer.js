@@ -82,7 +82,7 @@ export default class extends React.Component {
           {this.props.children}
           {this.state.searchByLastNameClicked ? <SearchByLastName handleSearchByLastNameClick={this.handleSearchByLastNameClick} /> : null }
           {!this.state.searchByLastNameClicked ? <Button className="btn btn-primary btn-lg margin-right" onClick={this.handleSearchByLastNameClick}>Searcy by Last Name</Button> : null }
-          <Button className="btn btn-primary btn-lg margin-right" onClick={this.resetEmployeeList}>Reset Employee List</Button>
+          <Button className="btn btn-primary btn-lg margin-right" onClick={this.resetEmployeeList}>Refresh Employees</Button>
           {this.props.children}
         </div>
         <Employees

@@ -53,7 +53,7 @@ module.exports = db.define('employee', {
 {
   getterMethods: {
     fullName: function(){
-      return this.firstName + ' ' + this.middleInitial + '. ' + this.lastName
+      return this.firstName + ' ' + this.lastName
     },
     phoneString: function(){
       return this.phoneNumber.toString().slice(0, 3) + '-' + this.phoneNumber.toString().slice(3, 6) + '-' + this.phoneNumber.toString().slice(6)

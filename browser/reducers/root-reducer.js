@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 // constants
-const SET_EMPLOYEES = 'SET_EMPLOYEES';
-const SET_EMPLOYEE_TO_UPDATE = 'SET_EMPLOYEE_TO_UPDATE';
-const SET_FORM_UPDATE_STATUS = 'SET_FORM_UPDATE_STATUS'
-const CLEAR_FORM_UPDATE_STATUS = 'CLEAR_FORM_UPDATE_STATUS'
+export const SET_EMPLOYEES = 'SET_EMPLOYEES';
+export const SET_EMPLOYEE_TO_UPDATE = 'SET_EMPLOYEE_TO_UPDATE';
+export const SET_FORM_UPDATE_STATUS = 'SET_FORM_UPDATE_STATUS'
+export const CLEAR_FORM_UPDATE_STATUS = 'CLEAR_FORM_UPDATE_STATUS'
 
 // action creators
 
@@ -52,6 +52,7 @@ export function fetchEmployees (employees) {
     axios.get('/api/employees')
     .then(res => res.data)
     .then(employees => {
+      console.log('the returned employees are', employees)
       dispatch(setEmployees(employees));
     })
   }

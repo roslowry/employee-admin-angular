@@ -4,6 +4,7 @@ const Employee = require('../db/employee')
 
 
 router.get('/', function(req, res, next){
+  console.log('seeking employees')
   Employee.findAll({
     order: [['createdAt', 'DESC']]
   })
@@ -42,7 +43,7 @@ router.post('/new-employee', function(req, res, next){
     })
   })
   .then(foundEmployees => {
-    res.json(foundEmployees)
+    res.status(201).json(foundEmployees)
   })
   .catch(next)
 })

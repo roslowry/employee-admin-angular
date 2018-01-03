@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const apiRouter = require('./api');
 const db = require('./db');
 
+
 db.sync()
 .then(() => {
   app.listen(port, function(){
@@ -33,3 +34,5 @@ app.use(function(err, req, res, next){
   console.error(err.stack)
   res.status(err.status || 500).send(err.message || 'Internal server error')
 })
+
+module.exports = app;
