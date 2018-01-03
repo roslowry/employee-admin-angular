@@ -4,7 +4,6 @@ const Employee = require('../db/employee')
 
 
 router.get('/', function(req, res, next){
-  console.log('seeking employees')
   Employee.findAll({
     order: [['createdAt', 'DESC']]
   })
@@ -23,7 +22,6 @@ router.get('/:id', function(req, res, next){
 })
 
 router.get(`/search/:lastName`, function (req, res, next) {
-  // console.log('in the employee router looking at req params for last name', req.params)
   Employee.findAll({
     where: {
       lastName: req.params.lastName

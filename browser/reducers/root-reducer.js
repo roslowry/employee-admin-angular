@@ -52,7 +52,6 @@ export function fetchEmployees (employees) {
     axios.get('/api/employees')
     .then(res => res.data)
     .then(employees => {
-      console.log('the returned employees are', employees)
       dispatch(setEmployees(employees));
     })
   }
@@ -93,7 +92,6 @@ export function addEmployee(employee) {
 
 export function findEmployeesByLastName(name) {
 
-  console.log('here in find employees by last name')
   return dispatch => {
     axios.get(`/api/employees/search/${name}`)
     .then(res => res.data)

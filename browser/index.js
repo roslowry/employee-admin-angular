@@ -15,7 +15,6 @@ const loadEmployees = () => {
   store.dispatch(fetchEmployees())
 }
 
-
 function test(){
   return (
     <div>Hey there! This is just a test component to ensure React Router is configured properly.</div>

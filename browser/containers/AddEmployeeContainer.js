@@ -60,11 +60,9 @@ export default class extends Component {
   }
 
   handleInputChange(event) {
-    console.log('udpating')
     const name = event.target.name;
     const value = event.target.value;
     const attrToUpdate = ' employeeToUpdate.' + name;
-    console.log('this.state change is', this.state)
     this.setState({
       [name] : value
     });
@@ -72,11 +70,8 @@ export default class extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log('handle submit)')
     const validateStatus = this.validateForm();
     if (validateStatus) {
-      console.log('inside first if of validate form');
-      console.log('validate status is', validateStatus)
       this.setState({
         valid: false,
         validateMessage: validateStatus
@@ -96,7 +91,6 @@ export default class extends Component {
     const notYetValid = {}
     const valsToCheck = ['emailAddress', 'firstName', 'lastName', 'dateHired', 'active'];
     valsToCheck.forEach(val => {
-      console.log('checking validation for', val, this.state[val])
       if (!this.state[val]) notYetValid[val] = true;
     })
     if (!Object.keys(notYetValid).length) return false;

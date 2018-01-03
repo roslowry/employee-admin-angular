@@ -38,7 +38,6 @@ export default class extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    console.log('next props', nextProps)
     this.setState({
       validateStatus: nextProps.validateStatus,
       validateMessage: nextProps.validateMessage
@@ -46,11 +45,9 @@ export default class extends React.Component{
   }
 
   render(){
-    console.log(
       'props.validate message', this.props.validateMessage
 
     )
-    console.log('props are', this.props)
   return (
 
     <div className="static-modal">

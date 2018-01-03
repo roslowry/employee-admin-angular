@@ -76,7 +76,6 @@ describe('Redux architecture', () => {
     let testingStore;
     beforeEach('Create a store for running tests', () => {
       testingStore = createStore(reducer, applyMiddleware(thunkMiddleware))
-      // console.log('the testing store is', testingStore)
     })
     let multipleEmployees = generateFakeEmployees(5);
     let singleEmployee = createEmployee();
