@@ -1,0 +1,46 @@
+.employee-view {
+  padding-right: 3%;
+  padding-left: 3%
+}
+
+.option-buttons {
+  width: 800px;
+  margin: auto
+}
+.margin-right {
+  margin: 13px 12px 12px 10px;
+}
+
+navbar-brand {
+  font-size: 200px;
+}
+
+
+.navbar-brand-top {
+  font-size: 30px;
+  padding-left: 20px;
+}
+
+header {
+  padding-bottom: 10px;
+}
+
+.nav.nav-pills {
+  padding-bottom: 10px;
+  padding-left: 12px;
+}
+
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E
+}
+
+.ng-valid.ng-dirty {
+  border-color: #78FA89
+}
+
+.all-forms {
+  width: 600px;
+  padding-left: 20px;
+  /*margin: auto;*/
+}

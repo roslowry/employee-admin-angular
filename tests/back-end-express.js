@@ -8,7 +8,6 @@ chai.use(sinonChai);
 import { createStore, applyMiddleware } from 'redux';
 import turnOnDb from '../server/db/db'
 import Adapter from 'enzyme-adapter-react-16';
-import EmployeeInputForm from '../browser/components/EmployeeInputForm';
 import 'jsdom-global/register';
 import db  from '../server/db/';
 const Employee = db.model('employee');

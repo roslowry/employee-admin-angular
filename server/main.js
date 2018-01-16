@@ -16,9 +16,21 @@ db.sync()
   })
 })
 
-app.use(morgan('dev'))
+app.use(morgan('dev'));
+//
+// app.use('/bootstrap', function(){console.log('bootstrap')})
+// app.use('/angular', function(){console.log('angular')})
+// app.use('/jquery', function(){console.log('jquery')})
 
-app.use(express.static(path.join(__dirname, '../public' )))
+
+
+app.use('/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
+app.use('/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
+app.use('/angular', express.static(path.join(__dirname, '../node_modules/angular')));
+
+app.use(express.static(path.join(__dirname, '../public' )));
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

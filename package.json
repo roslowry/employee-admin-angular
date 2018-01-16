@@ -6,17 +6,19 @@
   "scripts": {
     "test": "mocha ./tests/*.js --compilers js:babel-register",
     "seed": "node server/db/seed-files/seed",
-    "start": "node server/main",
-    "start-dev": "webpack -w & nodemon server/main"
+    "start": "node server/main"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.8",
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.16.2",
     "faker": "^4.1.0",
+    "jquery": "^3.2.1",
     "morgan": "^1.9.0",
     "path": "^0.12.7",
     "pg": "^6.4.1",
