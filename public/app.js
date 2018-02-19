@@ -45,6 +45,7 @@ app.controller('EmployeeController', function($scope, $rootScope, EmployeeFactor
   $scope.loadAll = function(){
     return EmployeeFactory.getAllEmployees()
     .then(function(response){
+      console.log('the employees are', response)
       angular.copy(response.data, $scope.employeesPlain);
       var editedEmployees =
       $scope.convertEmployees(response.data)
