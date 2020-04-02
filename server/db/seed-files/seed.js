@@ -1,7 +1,7 @@
 const Promise = require('bluebird');
 const db = require('../');
 const Employee = db.model('employee');
-const {createFullName, generateEmail, generatePhoneNumber, generatePositionCategory, generateAddress, generateState, generateZipCode, generateActiveBool, generateCity, generateHireDate, createEmployee} = require('./seed-utils')
+const {createFullName, generateEmail, generatePhoneNumber, generatePositionCategory, generateAddress, generateState, generateZipCode, generateActiveBool, generateCity, generateHireDate, createEmployee} = require('./seed-utils');
 
 const amountOfUsers = 75;
 

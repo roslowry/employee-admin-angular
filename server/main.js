@@ -3,7 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const path = require('path');
 // The process.env would be applicable for deploying to heroku or other deployment site
-const port = process.env.port || 3000;
+const port = process.env.port || 8080;
 const bodyParser = require('body-parser');
 const apiRouter = require('./api');
 const db = require('./db');
@@ -20,15 +20,14 @@ app.use(morgan('dev'));
 //
 // app.use('/bootstrap', function(){console.log('bootstrap')})
 // app.use('/angular', function(){console.log('angular')})
-// app.use('/jquery', function(){console.log('jquery')})
+// app.use('/jquery', function(){console.log('jquery')}
 
 
 
 app.use('/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
 app.use('/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
 app.use('/angular', express.static(path.join(__dirname, '../node_modules/angular')));
-
-app.use(express.static(path.join(__dirname, '../public' )));
+app.use(express.static(path.join(__dirname, '../client' )));
 
 
 

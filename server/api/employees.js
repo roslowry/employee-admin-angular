@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Employee = require('../db/employee')
+const Employee = require('../db/employee');
 
 
 router.get('/', function(req, res, next){
