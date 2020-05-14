@@ -1,8 +1,13 @@
 <div>
-  <h1 class="navbar-brand-top">Employee Tracker</h1>
-  <h2>{{test}}</h2>
-  
-  
+
+    <button ng-click="addEmployee()">Add Employee</button>
+    <label for="search-last-name"></label><input placeholder="Search by Last Name" id="search-last-name" ng-model="lastName" type="text"></input><button ng-click="searchEmployeesByLastName()">Search</button>
+    
+
+    <!-- Search by Last Name</input> -->
+
+    <button ng-click="loadEmployees()">Reload Employees</button>
+
   <table class="table">
     <thead>
       <tr>
@@ -21,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="employee in employees track by $index" >
+      <tr ng-repeat="employee in employees | orderBy:'dateHired' : true" >
         <th>{{employee.id}}</th>
         <th>{{employee.firstName}}</th>
         <th>{{employee.middleInitial}}</th>
@@ -29,14 +34,12 @@
         <th>{{employee.emailAddress}}</th>
         <th>{{employee.phoneString}}</th>
         <th>{{employee.positionCategory}}</th>
-        <th>{{employee.convertedDate}}</th>
-        <th>{{employee.convertedAddress}}</th>
-        <th>{{employee.convertedActive}}</th>
-        <th><button ng-click="updateEmployee(employee.id)">Update</button></th>
-        <th><button ng-click="setDelete(employee.id)">Delete</button></th>
+        <th>{{employee.displayHireDate}}</th>
+        <th>{{employee.displayAddress}}</th>
+        <th>{{employee.displayActiveStatus}}</th>
+        <th><button ng-click="updateEmployee(employee)">Update</button></th>
+        <th><button ng-click="deleteEmployee(employee.id)">Delete</button></th>
       </tr>
     </tbody>
   </table>
-
-
 </div>

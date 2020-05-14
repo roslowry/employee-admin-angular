@@ -1,5 +1,9 @@
-var utils = (function(){
-  return {
+(function(){
+"use strict"; 
+
+employeeAdminApp.service("AppUtilsService", function(){
+
+ return {
     convertPhoneNumber: function (number) {
       return number.toString().slice(0, 3) + '-' + number.toString().slice(3, 6) + '-' + number.toString.slice(6)
     },
@@ -36,84 +40,69 @@ var utils = (function(){
     },
     convertPhone: function(num){
       console.log('number received', num)
-      // var nums = [0,1,2,3,4,5,6,7,8,9].map(function(val){
-      //   return val.toString()
-      // });
+      var nums = [0,1,2,3,4,5,6,7,8,9].map(function(val){
+        return val.toString()
+      });
       return num.split('').filter(function(val){
-        return (nums.includes(Number(val)))
+        return (nums.includes(val))
       }).join('')
     },
-    states: [
-      "AK",
-      "AL",
-      "AR",
-      "AZ",
-      "CA",
-      "CO",
-      "CT",
-      "DC",
-      "DE",
-      "FL",
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "LA",
-      "MA",
-      "MD",
-      "ME",
-      "MI",
-      "MN",
-      "MO",
-      "MS",
-      "MT",
-      "NC",
-      "ND",
-      "NE",
-      "NH",
-      "NJ",
-      "NM",
-      "NV",
-      "NY",
-      "OH",
-      "OK",
-      "OR",
-      "PA",
-      "RI",
-      "SC",
-      "SD",
-      "TN",
-      "TX",
-      "UT",
-      "VA",
-      "VT",
-      "WA",
-      "WI",
-      "WV",
-      "WY"
-    ]
-  }
-})()
+    getStates: function(){
+    	return [
+			      "AK",
+			      "AL",
+			      "AR",
+			      "AZ",
+			      "CA",
+			      "CO",
+			      "CT",
+			      "DC",
+			      "DE",
+			      "FL",
+			      "GA",
+			      "HI",
+			      "IA",
+			      "ID",
+			      "IL",
+			      "IN",
+			      "KS",
+			      "KY",
+			      "LA",
+			      "MA",
+			      "MD",
+			      "ME",
+			      "MI",
+			      "MN",
+			      "MO",
+			      "MS",
+			      "MT",
+			      "NC",
+			      "ND",
+			      "NE",
+			      "NH",
+			      "NJ",
+			      "NM",
+			      "NV",
+			      "NY",
+			      "OH",
+			      "OK",
+			      "OR",
+			      "PA",
+			      "RI",
+			      "SC",
+			      "SD",
+			      "TN",
+			      "TX",
+			      "UT",
+			      "VA",
+			      "VT",
+			      "WA",
+			      "WI",
+			      "WV",
+			      "WY"
+			    ]
+			}
+  		}
+	})
 
-// var convertPhoneNumber = function (number) {
-//   return number.toString().slice(0, 3) + '-' + number.toString().slice(3, 6) + '-' + number.toString.slice(6)
-// }
-//
-// var convertAddress = function(line1, line2, city, state, zip) {
-//   var newAddress = line2 ? line1 + "\n" + line2 + "\n" + city + ', ' + state + ' ' + zip : line1 + "\n" + city + ', ' + state + ' ' + zip;
-//   return newAddress
-//   // return `${line1}\n${line2}\n${city}, ${state} ${zip}
-// }
-//
-// var boolToString = function (bool) {
-//   var newBool = bool.toString();
-//   var splitBool = newBool.split('')
-//   splitBool[0] = splitBool[0].toUpperCase();
-//   return splitBool.join('');
-// }
-//
-// module.exports = {states, convertPhoneNumber, convertAddress, boolToString}
+})(window.angular);

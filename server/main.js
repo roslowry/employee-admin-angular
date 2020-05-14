@@ -26,7 +26,16 @@ app.use(morgan('dev'));
 
 app.use('/bootstrap', express.static(path.join(__dirname, '../node_modules/bootstrap/dist')));
 app.use('/jquery', express.static(path.join(__dirname, '../node_modules/jquery/dist')));
+app.use('/angular-ui-bootstrap', express.static(path.join(__dirname, '../node_modules/angular-ui-bootstrap/dist')));
+app.use('/moment', express.static(path.join(__dirname, '../node_modules/moment')));
+app.use('/angular-moment', express.static(path.join(__dirname, '../node_modules/angular-moment')))
 app.use('/angular', express.static(path.join(__dirname, '../node_modules/angular')));
+// app.use('/angular/', express.static(path.join(__dirname, '../node_modules/angular')));
+
+
+// <script src="components/moment/moment.js"></script>
+// <script src="components/angular-moment/angular-moment.js"></script>	
+
 app.use(express.static(path.join(__dirname, '../client' )));
 
 

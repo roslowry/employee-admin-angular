@@ -1,22 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="employeeAdminApp">
   <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/jquery/jquery.min.js"></script>
     <script src="/angular/angular.min.js"></script>
+    <script src="/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/moment/moment.js"></script>
+    <script src="/angular-moment/angular-moment.js"></script>
     <script type="text/javascript" src="modules/employeeAdminApp.js"></script>
-    <script type="text/javascript" src="services/employeeRestService.js"></script>
-    <script type="text/javascript" src="employee/employee.js"></script>
+    <script type="text/javascript" src="services/AppUtilsService.js"></script>
+    <script type="text/javascript" src="services/EmployeeRestService.js"></script>
+
+    <script type="text/javascript" src="employee/allEmployeesDirective.js"></script>
     <script type="text/javascript" src="utils.js"></script>
     <!-- <script type="text/javascript" src="app.js"></script> -->
     <link href="index.css" rel="stylesheet">
     <title>Employee Tracker</title>
   </head>
   <body>
-    <div ng-app="employeeAdminApp">
-      <employee></employee>
-    </body>
+
+      <h2>Employee Administration Tracker</h2>
+      <div class="all-employees"> 
+      </div>
+
+
+<!--     <div ng-app="employeeAdminApp">
+ --><!--      <employee></employee> 
+ -->  
+  </body>   
     <!-- 
     <header>
       <h1 class="navbar-brand-top">Employee Admin Portal</h1>
@@ -123,79 +135,6 @@
           <fieldset class="form-group">
             <button type="submit" class="btn btn-primary pull-left" value="Submit">Submit</button>
             <button ng-click="close()" type="button" class="btn btn-primary pull-left" value="Close">Close</button>
-          </fieldset>
-        </form>
-      </div>
-
-      <div class="form-container">
-        <form ng-repeat="employee in employeesPlain track by $index"
-         name="updateForm"
-         ng-show="isCurrentUpdate(employee.id)"  ng-submit="updateForm.$valid && updateEmployee(employee.id)" class="all-forms" novalidate>
-          <fieldset class="form-group">
-            <label for="first">First Name</label>
-            <input ng-model="updateEmp.firstName" class="form-control" id="first" style="text-transform: capitalize;" ng-value="updateEmpfirstName" required>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="middle">Middle Initial</label>
-            <input ng-model="updateEmp.middleInitial" class="form-control" id="middle" maxlength="1" style="text-transform: capitalize;"
-            ng-value="updateEmpmiddleInitial">
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="last">Last Name Name</label>
-            <input ng-model="updateEmp.lastName" class="form-control" id="last" style="text-transform: capitalize;" ng-value="updateEmplastName" required>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="email">Email Address</label>
-            <input ng-model="updateEmp.emailAddress" class="form-control" ng-change="employeeC" id="email"   ng-value="updateEmpemailAddress" required>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="phone">Phone Number</label>
-            <input ng-model="updateEmp.phoneNumber" class="form-control" id="phone" type="tel" placeholder="YYY-YYY-YYYY"   ng-value="updateEmpphoneString">
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="positionCategory">Position Category</label>
-            <select ng-model="updateEmp.positionCategory" class="form-control" id="positionCategory" ng-value="updateEmppositionCategory">
-              <option value="updateEmppositionCategory">{{updateEmppositionCategory}}</option>
-              <option value="Indirect">Indirect</option>
-              <option value="Direct">Direct</option>
-              <option value="Program Manager">Program Manager</option>
-              <option value="Director">Director</option>
-              <option value="Executive">Executive</option>
-            </select>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="date">Date Hired</label>
-            <input ng-model="updateEmp.dateHired" class="form-control" id="date" type="date" ng-value="updateEmpdateHired" required>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="address1">Address 1</label>
-            <input ng-model="updateEmp.address1" class="form-control" ng-value="updateEmpaddress1" id="address1" type="text">
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="city">Address 2</label>
-            <input ng-model="updateEmp.address2" class="form-control" id="address2" ng-value="updateEmpaddress2"type="text">
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="city">City</label>
-            <input ng-model="updateEmp.city" class="form-control" ng-value="updateEmpcity" id="city" type="text">
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="state">State</label>
-            <select ng-model="updateEmp.state" class="form-control" id="state" ng-options="state for state in states">
-            </select>
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="zip">Zip Code</label>
-            <input ng-model="updateEmp.zipcode" class="form-control" id="zip" type="text" ng-value="updateEmpzipcode" maxlength="5">
-          </fieldset>
-          <fieldset class="form-group" >
-            <label for="active">Active Status</label>
-            <select ng-model="updateEmp.active" class="form-control" id="active" ng-options="bool for bool in bools" ng-selected="updateEmpactive" required>
-            </select>
-          </fieldset>
-          <fieldset class="form-group">
-            <button class="btn btn-primary pull-left" value="Submit" ng-click="updateEmployee(employee.id)">Submit</button>
-            <button class="btn btn-primary pull-left" value="Close" ng-click="close()">Close</button>
           </fieldset>
         </form>
       </div>

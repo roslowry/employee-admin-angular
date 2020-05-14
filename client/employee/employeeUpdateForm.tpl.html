@@ -1,0 +1,89 @@
+<div> 
+
+<!-- <form name="updateForm" ng-submit="updateForm.$valid && updateEmployee(employee.id)" class="all-forms" novalidate> -->
+
+  <!-- HEADER -->
+  <div class="modal-header">
+    <h2>Edit Employee</h5>
+  </div>
+
+  <!-- BODY -->
+  <div class="modal-body">
+    <fieldset class="form-row">
+      <div class="form-group col-md-5">
+        <label for="first">First Name</label>
+        <input ng-model="employee.firstName" class="form-control" id="first" style="text-transform: capitalize;" ng-value="employee.firstName" required>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="middle" style="word-wrap: none">M. Initial</label>
+        <input ng-model="employee.middleInitial" class="form-control" id="middle" ma xlength="1" style="text-transform: capitalize;" ng-value="employee.middleInitial">
+      </div>
+
+      <div class="form-group col-md-5">
+        <label for="last">Last Name</label>
+        <input ng-model="employee.lastName" class="form-control" id="last" style="text-transform: capitalize;" ng-value="employee.lastName" required>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-row">
+      <div class="form-group col-md-6">
+        <label for="phone">Phone</label>
+        <input ng-model="employee.phoneNumber" class="form-control" id="phone" type="tel" placeholder="YYY-YYY-YYYY"   ng-value="employee.phoneNumber">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input ng-model="employee.emailAddress" class="form-control" ng-change="employeeC" id="email"   ng-value="employee.emailAddress" required>
+      </div>
+    </fieldset>
+
+    <fieldset class="form-row">
+      <div class="form-group col-md-12">
+
+        <label for="address1">Address</label>
+        <input ng-model="employee.address1" class="form-control" ng-value="employee.address1" id="address1" type="text">
+      </div>
+      <div class="form-group col-md-12">
+        <input ng-model="employee.address2" class="form-control" id="address2" ng-value="employee.address2"type="text">
+      </div>
+    </fieldset>
+
+    <fieldset class="form-row">
+      <div class="form-group col-md-5">
+        <label for="city">City</label>
+        <input ng-model="employee.city" class="form-control" ng-value="employee.city" id="city" type="text">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="state">State</label>
+        <select ng-model="employee.state" class="form-control" id="state" ng-model="employee.state" ng-options="state for state in states"></select>
+      </div>
+      <div class="form-group col-md-5">
+        <label for="zip">ZIP</label>
+        <input ng-model="employee.zipcode" class="form-control" id="zip" type="text" ng-model="employee.zipcode" maxlength="5">
+      </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+      <div class="form-group col-md-12">
+        <label for="positionCategory">Position Category</label>
+        <select ng-model="employee.positionCategory" class="form-control" id="positionCategory" ng-value="employee.positionCategory">
+          <option value="employee.positionCategory">{{updateEmp.positionCategory}}</option>
+          <option value="Indirect">Indirect - Admin and New Biz Support</option>
+          <option value="Direct">Direct - Billable to Client</option>
+          <option value="Program Manager">Program Manager</option>
+          <option value="Director">Director</option>
+          <option value="Executive">Executive</option>
+        </select>
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- FOOTER  -->
+  <div class="modal-footer">
+    <fieldset class="form-group">
+      <button class="btn btn-primary pull-left" value="Submit" ng-click="submit()">Submit</button>
+      <button class="btn btn-primary pull-left" value="Close" ng-click="close()">Close</button>
+    </fieldset>
+  </div>
+  <!-- </form> -->
+<!-- </form> -->
+</div>
